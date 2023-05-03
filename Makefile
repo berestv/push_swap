@@ -7,10 +7,9 @@ RM = rm -rf
 LIBFT = libft/libft.a
 
 SRCS =  push_swap.c \
-		lists.c \
+		verif.c \
 		utils.c \
-		check.c \
-
+		lists.c \
 
 OBJS = $(SRCS:%.c=%.o)
 

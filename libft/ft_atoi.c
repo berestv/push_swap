@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:20:21 by marvin            #+#    #+#             */
-/*   Updated: 2022/11/07 22:20:21 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/03 16:28:43 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,3 @@ int	ft_atoi(const char *str)
 	}
 	return (res * sgn);
 }
-/* #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-int main()
-{
-	int val;
-	char str[20];
-
-	strcpy(str, "-12345");
-	val = ft_atoi(str);
-	printf("String value = %s, Int value = %d\n", str, val);
-
-	strcpy(str, "-12345");
-	val = atoi(str);
-	printf("String value = %s, Int value = %d\n", str, val);
-
-	return (0);
-} */

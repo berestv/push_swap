@@ -6,50 +6,33 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:49:39 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/04/25 16:49:39 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/03 16:33:57 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_whitespace(const char *str, int *ptr_i)
+long	ft_atol(const char *str)
 {
-	int	i;
-	int	minus;
+	long	i;
+	long	res;
+	int		sgn;
 
 	i = 0;
-	minus = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
+	res = 0;
+	sgn = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == 45 || str[i] == 43)
 	{
+		if (str[i] == 45)
+			sgn = -1;
 		i++;
 	}
-	if (str[i] == '-')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		minus *= -1;
+		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
-	if (str[i] == '+')
-	{
-		i++;
-	}
-	*ptr_i = i;
-	return (minus);
-}
-
-long	ft_atol(const char *nptr)
-{
-	int		i;
-	long	sign;
-	long	result;
-
-	result = 0;
-	sign = ft_whitespace(nptr, &i);
-	while (nptr[i] != '\0' && nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result *= 10;
-		result += nptr[i] - 48;
-		i++;
-	}
-	result *= sign;
-	return (result);
+	return (res * sgn);
 }
