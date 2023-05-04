@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:24:16 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/03 15:43:44 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:15:03 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_node
 t_node	*createnode(int num);
 void	stack_change(t_node *new_node, t_stack *stack);
 void	initialize(t_stack *stack_a, t_stack *stack_b);
-void	del_fnode(t_stack *stack);
+void	deathnode(t_stack *stack);
 void	free_list(t_stack *stack);
 // ------------- UTILS ------------ //
 void	free2d(char **arr, int size);

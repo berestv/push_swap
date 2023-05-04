@@ -23,7 +23,7 @@ t_node	*createnode(int num)
 	return (node);
 }
 
-void	delfnode(t_stack *stack)
+void	deathnode(t_stack *stack)
 {
 	t_node	*temp;
 
