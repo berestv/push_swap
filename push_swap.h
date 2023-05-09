@@ -42,7 +42,7 @@ void	ops(t_stack *stack_a, t_stack *stack_b, char *op_id);
 void	ops2(t_stack *stack_a, t_stack *stack_b, char *op_id);
 int		swap(t_stack *stack_a);
 int		rotate(t_stack *stack);
-int		rr(t_stack *stack_a, t_stack *stack_b);
+int		rotrot(t_stack *stack_a, t_stack *stack_b);
 int		rev_rot(t_stack *stack);
 int		rrr(t_stack *stack_a, t_stack *stack_b);
 int		push(t_stack *src, t_stack *dest);

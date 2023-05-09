@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:10:12 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/04 12:15:44 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/08 19:11:52 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ops_picker(t_stack *stack_a, t_stack *stack_b, char *op_id)
 		if (rotate(stack_a) == 0)
 			ft_printf("ra\n");
 	else if (op_id == "rb")
-		if (rotate(stack_a) == 0)
+		if (rotate(stack_b) == 0)
 			ft_printf("rb\n");
 	else
 		ops2(stack_a, stack_b, op_id);
@@ -41,7 +41,18 @@ void	ops_picker(t_stack *stack_a, t_stack *stack_b, char *op_id)
 
 void	ops_picker2(t_stack *stack_a, t_stack *stack_b, char *op_id)
 {
-
+	if (op_id == "rra")
+		if (rev_rot(stack_a) == 0)
+			ft_printf("sa\n");
+	else if (op_id == "rrb")
+		if (rev_rot(stack_b) == 0)
+			ft_printf("sb\n");
+	else if (op_id == "rrr")
+		if (rrr(stack_a, stack_b) == 0)
+			ft_printf("ss\n");
+	else if (op_id == "rr")
+		if (rr(stack_a, stack_b) == 0)
+			ft_printf("ss\n");
 }
 
 int	push(t_stack *src, t_stack *dest)
@@ -62,5 +73,12 @@ int	swap(t_stack *stack)
 		stack->top->next->num = temp;
 		return (1);
 	}
+	return (0);
+}
+
+int	ss(t_stack *stack_a, t_stack *stack_b)
+{
+	if (swap(stack_a) == 1 && swap(stack_b) == 1)
+		return (1);
 	return (0);
 }
