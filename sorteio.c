@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:47:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/15 18:48:50 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/15 18:58:24 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,28 @@ void	sort5(t_stack *a, t_stack *b)
 		sort5_xtra(a, b, pos);
 		ops(a, b, "pb");
 	}
+	else if ()
+	{
+		
+	}
 }
 
 void	sort5_xtra(t_stack *a, t_stack *b, int pos)
 {
-	if (pos == 2 || pos == 3)
+	if (pos > 1 && pos <= 3)
 	{
-
+		while (pos > 1)
+		{
+			ops(a, b, "ra");
+			pos--;
+		}
+	}
+	else if (pos > 3 && pos <= 5)
+	{
+		while (pos > 1)
+		{
+			ops(a, b, "rra");
+			pos--;
+		}
 	}
 }
