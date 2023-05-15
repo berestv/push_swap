@@ -33,7 +33,7 @@ int	rev_rot(t_stack *stack)
 {
 	if (stack->size >= 2)
 	{
-		stack->top = stack->top->previous;
+		stack->top = stack->top->prev;
 		return (1);
 	}
 	return (0);
