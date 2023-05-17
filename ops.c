@@ -6,60 +6,60 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:10:12 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/08 19:11:52 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:28:41 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ops_picker(t_stack *stack_a, t_stack *stack_b, char *op_id)
+void	ops(t_stack *stack_a, t_stack *stack_b, char *op_id)
 {
-	if (op_id == "sa")
-		if (swap(stack_a) == 0)
+	if (ft_strncmp("sa", op_id, 2) == 0)
+		if (swap(stack_a) == 1)
 			ft_printf("sa\n");
-	else if (op_id == "sb")
-		if (swap(stack_b) == 0)
+	if (ft_strncmp("sb", op_id, 2) == 0)
+		if (swap(stack_b) == 1)
 			ft_printf("sb\n");
-	else if (op_id == "ss")
-		if (ss(stack_a, stack_b) == 0)
+	if (ft_strncmp("ss", op_id, 2) == 0)
+		if (ss(stack_a, stack_b) == 1)
 			ft_printf("ss\n");
-	else if (op_id == "pa")
-		if (push(stack_b, stack_a) == 0)
+	if (ft_strncmp("pa", op_id, 2) == 0)
+		if (push(stack_b, stack_a) == 1)
 			ft_printf("pa\n");
-	else if (op_id == "pb")
-		if (push(stack_b, stack_a) == 0)
+	if (ft_strncmp("pb", op_id, 2) == 0)
+		if (push(stack_a, stack_b) == 1)
 			ft_printf("pb\n");
-	else if (op_id == "ra")
-		if (rotate(stack_a) == 0)
+	if (ft_strncmp("ra", op_id, 2) == 0)
+		if (rotate(stack_a) == 1)
 			ft_printf("ra\n");
-	else if (op_id == "rb")
-		if (rotate(stack_b) == 0)
+	if (ft_strncmp("rb", op_id, 2) == 0)
+		if (rotate(stack_b) == 1)
 			ft_printf("rb\n");
-	else
-		ops2(stack_a, stack_b, op_id);
+	ops2(stack_a, stack_b, op_id);
 }
 
-void	ops_picker2(t_stack *stack_a, t_stack *stack_b, char *op_id)
+void	ops2(t_stack *stack_a, t_stack *stack_b, char *op_id)
 {
-	if (op_id == "rra")
-		if (rev_rot(stack_a) == 0)
-			ft_printf("sa\n");
-	else if (op_id == "rrb")
-		if (rev_rot(stack_b) == 0)
-			ft_printf("sb\n");
-	else if (op_id == "rrr")
-		if (rrr(stack_a, stack_b) == 0)
-			ft_printf("ss\n");
-	else if (op_id == "rr")
-		if (rr(stack_a, stack_b) == 0)
-			ft_printf("ss\n");
+	if (ft_strncmp("rra", op_id, 3) == 0)
+		if (rev_rot(stack_a) == 1)
+			ft_printf("rra\n");
+	if (ft_strncmp("rrb", op_id, 3) == 0)
+		if (rev_rot(stack_b) == 1)
+			ft_printf("rrb\n");
+	if (ft_strncmp("rrr", op_id, 3) == 0)
+		if (rrr(stack_a, stack_b) == 1)
+			ft_printf("rrr\n");
+	if (ft_strncmp("rr", op_id, 3) == 0)
+		if (rotrot(stack_a, stack_b) == 1)
+			ft_printf("rr\n");
 }
 
 int	push(t_stack *src, t_stack *dest)
 {
 	stack_change(createnode(src->top->num), dest);
 	deathnode(src);
-
+	src->size--;
+	return (1);
 }
 
 int	swap(t_stack *stack)

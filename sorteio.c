@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:47:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/15 18:58:24 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:47:12 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,24 @@ void	sort5(t_stack *a, t_stack *b)
 {
 	int	pos;
 
-	pos = find_limits(a, "min");
+	pos = find_limits(a, '-');
 	sort5_xtra(a, b, pos);
 	ops(a, b, "pb");
 	if (a->size == 4)
 	{
-		pos = find_limits(a, "max");
+		pos = find_limits(a, '+');
 		sort5_xtra(a, b, pos);
 		ops(a, b, "pb");
 	}
-	else if ()
+	sort3(a, b);
+	if (a->size == 3 && b->size == 2)
 	{
-		
+		ops(a, b, "pa");
+		ops(a, b, "ra");
+		ops(a, b, "pa");
 	}
+	else if (a->size == 3 && b->size == 1)
+		ops(a, b, "pa");
 }
 
 void	sort5_xtra(t_stack *a, t_stack *b, int pos)
@@ -74,10 +79,15 @@ void	sort5_xtra(t_stack *a, t_stack *b, int pos)
 	}
 	else if (pos > 3 && pos <= 5)
 	{
-		while (pos > 1)
+		while (pos <= a->size)
 		{
 			ops(a, b, "rra");
-			pos--;
+			pos++;
 		}
 	}
 }
+
+/*void	sort(t_stack *a, t_stack *b)
+{
+
+}*/

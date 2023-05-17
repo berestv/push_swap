@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:29:10 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/15 17:14:03 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:21:36 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	printlist(t_stack *stack)
 	}
 }
 
-int	find_limits(t_stack *stack, char *op)
+int	find_limits(t_stack *stack, char op)
 {
 	int	pos;
 	int	lim;
@@ -46,12 +46,12 @@ int	find_limits(t_stack *stack, char *op)
 	lim = stack->top->num;
 	while (stack->size >= i)
 	{
-		if (stack->top->num > lim && op == "max")
+		if (stack->top->num > lim && op == '+')
 		{
 			lim = stack->top->num;
 			pos = i;
 		}
-		else if (stack->top->num < lim && op == "min")
+		else if (stack->top->num < lim && op == '-')
 		{
 			lim = stack->top->num;
 			pos = i;

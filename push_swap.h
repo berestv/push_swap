@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:24:16 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/15 18:45:02 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:34:36 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,21 @@ typedef struct s_node
 	struct s_node		*next;
 	struct s_node		*prev;
 }						t_node;
+
 t_node	*createnode(int num);
 void	stack_change(t_node *new_node, t_stack *stack);
 void	initialize(t_stack *stack_a, t_stack *stack_b);
 void	deathnode(t_stack *stack);
 void	free_list(t_stack *stack);
+
+// ------------ CHECKS ----------- //
+int		dups(char **str, int size, char op);
+int		isnum(char *str);
+
 // ------------- UTILS ------------ //
 void	free2d(char **arr, int size);
 void	printlist(t_stack *stack);
-int		find_limits(t_stack *stack, char *op);
+int		find_limits(t_stack *stack, char op);
 void	sort5_xtra(t_stack *a, t_stack *b, int pos);
 
 // ---------- OPERATIONS ---------- //
