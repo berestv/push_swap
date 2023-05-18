@@ -61,3 +61,34 @@ int	find_limits(t_stack *stack, char op)
 	}
 	return (pos);
 }
+
+void	sort5_xtra(t_stack *a, t_stack *b, int pos)
+{
+	if (pos > 1 && pos <= 3)
+	{
+		while (pos > 1)
+		{
+			ops(a, b, "ra");
+			pos--;
+		}
+	}
+	else if (pos > 3 && pos <= 5)
+	{
+		while (pos <= a->size)
+		{
+			ops(a, b, "rra");
+			pos++;
+		}
+	}
+}
+
+void	b2bzero(t_nop *numops)
+{
+	numops->ra = 0;
+	numops->rb = 0;
+	numops->rr = 0;
+	numops->rra = 0;
+	numops->rrb = 0;
+	numops->rrr = 0;
+	numops->add = 0;
+}

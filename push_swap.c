@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:01:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/17 15:58:18 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/18 12:49:49 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ int	arg_convert(int argc, char *argv[], t_stack *stack)
 void	initialize(t_stack *stack_a, t_stack *stack_b)
 {
 	stack_a->size = 0;
+	stack_a->id = 'a';
 	stack_b->size = 0;
+	stack_b->id = 'b';
 }
 
 int	main(int argc, char *argv[])

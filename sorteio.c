@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:47:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/17 16:47:12 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/18 12:30:19 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,27 +67,26 @@ void	sort5(t_stack *a, t_stack *b)
 		ops(a, b, "pa");
 }
 
-void	sort5_xtra(t_stack *a, t_stack *b, int pos)
+void	sort(t_stack *a, t_stack *b)
 {
-	if (pos > 1 && pos <= 3)
+	t_nop	numops;
+
+	b2bzero(&numops);
+	ops(a, b, "pb");
+	ops(a, b, "pb");
+	while (a->size > 0)
 	{
-		while (pos > 1)
-		{
-			ops(a, b, "ra");
-			pos--;
-		}
-	}
-	else if (pos > 3 && pos <= 5)
-	{
-		while (pos <= a->size)
-		{
-			ops(a, b, "rra");
-			pos++;
-		}
+		numops = best(a, b);
 	}
 }
 
-/*void	sort(t_stack *a, t_stack *b)
+t_nop	best(t_stack *a, t_stack *b)
 {
+	t_nop	numops;
+	t_nop	best;
+	t_stack	*copied;
 
-}*/
+	copied = stk_cpy(a);
+	b2bzero(&numops);
+
+}

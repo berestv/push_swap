@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:24:16 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/17 15:34:36 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/18 12:55:06 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_stack
 {
 	struct s_node		*top;
 	int					size;
+	char				id;
 }						t_stack;
 
 typedef struct s_node
@@ -28,6 +29,17 @@ typedef struct s_node
 	struct s_node		*next;
 	struct s_node		*prev;
 }						t_node;
+
+typedef struct n_op
+{
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int rrb;
+	int	rrr;
+	int add;
+}		t_nop;
 
 t_node	*createnode(int num);
 void	stack_change(t_node *new_node, t_stack *stack);
@@ -44,6 +56,11 @@ void	free2d(char **arr, int size);
 void	printlist(t_stack *stack);
 int		find_limits(t_stack *stack, char op);
 void	sort5_xtra(t_stack *a, t_stack *b, int pos);
+void	b2bzero(t_nop *numops);
+t_nop	best(t_stack *a, t_stack *b);
+t_stack	*stk_cpy(t_stack *src);
+int		finddex(t_stack *stack, int num);
+void	movecount(t_nop *moves, t_stack *stack, int num);
 
 // ---------- OPERATIONS ---------- //
 void	ops(t_stack *stack_a, t_stack *stack_b, char *op_id);
