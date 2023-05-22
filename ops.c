@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:10:12 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/17 17:28:41 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:45:51 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,10 @@ void	ops2(t_stack *stack_a, t_stack *stack_b, char *op_id)
 
 int	push(t_stack *src, t_stack *dest)
 {
+	if (src->size == 0)
+		return (-1);
 	stack_change(createnode(src->top->num), dest);
 	deathnode(src);
-	src->size--;
 	return (1);
 }
 

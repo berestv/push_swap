@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:47:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/22 15:58:46 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:56:20 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,11 @@ void	sort(t_stack *a, t_stack *b)
 		numops = best(a, b);
 		execute(a, b, &numops);
 	}
+	b2bzero(&numops);
+	movecount(&numops, b, find_limits_n(b, '+'));
+	execute(a, b, &numops);
+	while (b->size)
+		ops(a, b, "pa");
 }
 
 t_nop	best(t_stack *a, t_stack *b)
@@ -104,6 +109,5 @@ t_nop	best(t_stack *a, t_stack *b)
 			break ;
 		copied->top = copied->top->next;
 	}
-	free(copied);
 	return (best);
 }

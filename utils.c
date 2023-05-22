@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:29:10 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/22 14:46:53 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:17:57 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,6 @@ void	free2d(char **arr, int size)
 	}
 	free(arr);
 }
-
-/*void	printlist(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->size)
-	{
-		ft_printf("%i\n", stack->top->num);
-		stack->top = stack->top->next;
-		i++;
-	}
-}*/
 
 int	find_limits(t_stack *stack, char op)
 {
@@ -62,7 +49,7 @@ int	find_limits(t_stack *stack, char op)
 	return (pos);
 }
 
-int	find_limits_N(t_stack *stack, char op)
+int	find_limits_n(t_stack *stack, char op)
 {
 	int	lim;
 	int	i;

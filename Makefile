@@ -1,7 +1,7 @@
 NAME = push_swap.a
 
 CC = cc -g
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -rf
 
 LIBFT = libft/libft.a

@@ -6,18 +6,18 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 12:06:17 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/22 15:53:16 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:47:49 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
 t_stack	*stk_cpy(t_stack *src)
 {
 	t_stack	*copied;
 
+	if (src->size < 0)
+		return (0);
 	copied = malloc(sizeof(t_stack));
 	copied->top = src->top;
 	copied->size = src->size;
@@ -71,8 +71,8 @@ int	lowernum(t_stack *stack, int num)
 	int		max;
 
 	copied = stk_cpy(stack);
-	min = find_limits_N(copied, '-');
-	max = find_limits_N(copied, '+');
+	min = find_limits_n(copied, '-');
+	max = find_limits_n(copied, '+');
 	if (num > max || num < min)
 	{
 		free(copied);

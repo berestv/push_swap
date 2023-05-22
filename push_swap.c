@@ -6,13 +6,13 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:01:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/18 12:49:49 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:23:43 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	str_convert(char *str, t_stack *stack)
+void	str_convert(t_stack *a, t_stack *b, char *str)
 {
 	int		i;
 	int		size;
@@ -21,7 +21,7 @@ int	str_convert(char *str, t_stack *stack)
 	i = 0;
 	nospc = ft_split(str, ' ');
 	if (!nospc)
-		return (-1);
+		return ;
 	while (nospc[i])
 		i++;
 	size = i;
@@ -30,29 +30,29 @@ int	str_convert(char *str, t_stack *stack)
 	{
 		while (i > 0)
 		{
-			stack_change(createnode(ft_atoi(nospc[i])), stack);
+			stack_change(createnode(ft_atoi(nospc[i])), a);
 			i--;
 		}
 		free2d(nospc, size);
-		return (0);
+		return ;
 	}
 	free2d(nospc, size);
-	return (-1);
+	calculate(a, b);
 }
 
-int	arg_convert(int argc, char *argv[], t_stack *stack)
+void	arg_convert(int argc, char *argv[], t_stack *a, t_stack *b)
 {
 	argc--;
 	if (dups(argv, argc, 'a') == -1)
-		return (-1);
+		return ;
 	while (argc > 0)
 	{
 		if (isnum(argv[argc]) == -1)
-			return (-1);
-		stack_change(createnode(ft_atoi(argv[argc])), stack);
+			return ;
+		stack_change(createnode(ft_atoi(argv[argc])), a);
 		argc--;
 	}
-	return (0);
+	calculate(a, b);
 }
 
 void	initialize(t_stack *stack_a, t_stack *stack_b)
@@ -68,21 +68,15 @@ int	main(int argc, char *argv[])
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	if (argc >= 2)
-	{
-		stack_a = malloc(sizeof (t_stack));
-		stack_b = malloc(sizeof (t_stack));
-		initialize(stack_a, stack_b);
-		if (argc == 2)
-			str_convert(argv[1], stack_a);
-		if (argc > 2)
-			arg_convert(argc, argv, stack_a);
-		calculate(stack_a, stack_b);
-		/*print_list(stack_a);
-		ft_printf("\n");
-		print_list(stack_b);
-		free_list(stack_a);
-		free_list(stack_b);*/
-	}
+	if (argc < 2)
+		return (0);
+	stack_a = malloc(sizeof (t_stack));
+	stack_b = malloc(sizeof (t_stack));
+	initialize(stack_a, stack_b);
+	if (argc == 2)
+		str_convert(stack_a, stack_b, argv[1]);
+	if (argc > 2)
+		arg_convert(argc, argv, stack_a, stack_b);
+	free_lists(stack_a, stack_b);
 	return (0);
 }

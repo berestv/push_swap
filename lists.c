@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:50:10 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/16 15:41:39 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:26:23 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	deathnode(t_stack *stack)
 	stack->top = stack->top->next;
 	stack->top->prev->prev->next = stack->top;
 	stack->top->prev = stack->top->prev->prev;
+	stack->size--;
 	free(temp);
 }
 
@@ -50,4 +51,21 @@ void	stack_change(t_node *new_node, t_stack *stack)
 	stack->top->prev = new_node;
 	stack->top = new_node;
 	stack->size++;
+}
+
+void	free_lists(t_stack *a, t_stack *b)
+{
+	while (a->size > 0)
+		deathnode(a);
+	while (b->size > 0)
+		deathnode(b);
+	free(a);
+	free(b);
+}
+
+void	free_list(t_stack *stack)
+{
+	while (stack->size > 0)
+		deathnode(stack);
+	free(stack);
 }

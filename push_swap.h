@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:24:16 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/22 15:56:13 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:33:31 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ int		isnum(char *str);
 
 // ------------ UTILS ------------ //
 void	free2d(char **arr, int size);
-void	printlist(t_stack *stack);
 int		find_limits(t_stack *stack, char op);
-int		find_limits_N(t_stack *stack, char op);
+int		find_limits_n(t_stack *stack, char op);
 void	sort5_xtra(t_stack *a, t_stack *b, int pos);
 t_stack	*stk_cpy(t_stack *src);
 int		finddex(t_stack *stack, int num);
@@ -68,6 +67,7 @@ void	execute2(t_stack *a, t_stack *b, t_nop *numops);
 // ----------- STACK OPS ---------- //
 t_node	*createnode(int num);
 void	free_list(t_stack *stack);
+void	free_lists(t_stack *a, t_stack *b);
 void	stack_change(t_node *new_node, t_stack *stack);
 void	initialize(t_stack *stack_a, t_stack *stack_b);
 void	deathnode(t_stack *stack);
@@ -85,6 +85,7 @@ int		ss(t_stack *stack_a, t_stack *stack_b);
 
 // ------------ SORT ------------ //
 void	calculate(t_stack *stack_a, t_stack *stack_b);
+void	sort(t_stack *a, t_stack *b);
 void	sort2(t_stack *stack_a, t_stack *stack_b);
 void	sort3(t_stack *stk, t_stack *stk_b);
 void	sort5(t_stack *stack_a, t_stack *stack_b);
