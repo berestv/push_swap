@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:29:10 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/17 15:21:36 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:46:53 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	free2d(char **arr, int size)
 	free(arr);
 }
 
-void	printlist(t_stack *stack)
+/*void	printlist(t_stack *stack)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ void	printlist(t_stack *stack)
 		stack->top = stack->top->next;
 		i++;
 	}
-}
+}*/
 
 int	find_limits(t_stack *stack, char op)
 {
@@ -51,7 +51,7 @@ int	find_limits(t_stack *stack, char op)
 			lim = stack->top->num;
 			pos = i;
 		}
-		else if (stack->top->num < lim && op == '-')
+		if (stack->top->num < lim && op == '-')
 		{
 			lim = stack->top->num;
 			pos = i;
@@ -60,6 +60,25 @@ int	find_limits(t_stack *stack, char op)
 		i++;
 	}
 	return (pos);
+}
+
+int	find_limits_N(t_stack *stack, char op)
+{
+	int	lim;
+	int	i;
+
+	i = 1;
+	lim = stack->top->num;
+	while (stack->size >= i)
+	{
+		if (stack->top->num > lim && op == '+')
+			lim = stack->top->num;
+		if (stack->top->num < lim && op == '-')
+			lim = stack->top->num;
+		stack->top = stack->top->next;
+		i++;
+	}
+	return (lim);
 }
 
 void	sort5_xtra(t_stack *a, t_stack *b, int pos)

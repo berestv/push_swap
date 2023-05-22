@@ -6,16 +6,13 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 12:06:17 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/18 12:54:28 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:53:16 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	execute()
-{
-	// calma
-}
+
 
 t_stack	*stk_cpy(t_stack *src)
 {
@@ -65,4 +62,28 @@ int	finddex(t_stack *stack, int num)
 	}
 	free(copied);
 	return (index);
+}
+
+int	lowernum(t_stack *stack, int num)
+{
+	t_stack	*copied;
+	int		min;
+	int		max;
+
+	copied = stk_cpy(stack);
+	min = find_limits_N(copied, '-');
+	max = find_limits_N(copied, '+');
+	if (num > max || num < min)
+	{
+		free(copied);
+		return (max);
+	}
+	while (copied->size--)
+	{
+		if (num > copied->top->num && copied->top->num > min)
+			min = copied->top->num;
+		copied->top = copied->top->next;
+	}
+	free(copied);
+	return (min);
 }

@@ -8,12 +8,14 @@ LIBFT = libft/libft.a
 
 SRCS =  push_swap.c \
 		calcs.c \
-		utils.c \
 		lists.c \
 		ops.c \
 		ops2.c \
 		verif.c \
 		sorteio.c \
+		utils.c \
+		utils2.c \
+		utils3.c \
 
 OBJS = $(SRCS:%.c=%.o)
 

@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:47:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/18 12:30:19 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:58:46 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	sort(t_stack *a, t_stack *b)
 	while (a->size > 0)
 	{
 		numops = best(a, b);
+		execute(a, b, &numops);
 	}
 }
 
@@ -88,5 +89,21 @@ t_nop	best(t_stack *a, t_stack *b)
 
 	copied = stk_cpy(a);
 	b2bzero(&numops);
-
+	movecount(&numops, a, a->top->num);
+	movecount(&numops, b, lowernum(b, a->top->num));
+	best = numops;
+	best.add = ops_sum(&numops);
+	while (copied->size--)
+	{
+		b2bzero(&numops);
+		movecount(&numops, a, copied->top->num);
+		movecount(&numops, b, lowernum(b, copied->top->num));
+		if (best.add > ops_sum(&numops))
+			best = numops;
+		if (ops_sum(&numops) == 0)
+			break ;
+		copied->top = copied->top->next;
+	}
+	free(copied);
+	return (best);
 }

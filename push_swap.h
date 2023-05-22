@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:24:16 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/18 12:55:06 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:56:13 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,36 @@ typedef struct n_op
 	int add;
 }		t_nop;
 
-t_node	*createnode(int num);
-void	stack_change(t_node *new_node, t_stack *stack);
-void	initialize(t_stack *stack_a, t_stack *stack_b);
-void	deathnode(t_stack *stack);
-void	free_list(t_stack *stack);
 
-// ------------ CHECKS ----------- //
+// ------------ CHECKS ------------ //
 int		dups(char **str, int size, char op);
 int		isnum(char *str);
 
-// ------------- UTILS ------------ //
+// ------------ UTILS ------------ //
 void	free2d(char **arr, int size);
 void	printlist(t_stack *stack);
 int		find_limits(t_stack *stack, char op);
+int		find_limits_N(t_stack *stack, char op);
 void	sort5_xtra(t_stack *a, t_stack *b, int pos);
-void	b2bzero(t_nop *numops);
-t_nop	best(t_stack *a, t_stack *b);
 t_stack	*stk_cpy(t_stack *src);
 int		finddex(t_stack *stack, int num);
+int		lowernum(t_stack *stack, int num);
+
+// ----------- MOVES OPS ---------- //
+t_nop	best(t_stack *a, t_stack *b);
+void	b2bzero(t_nop *numops);
 void	movecount(t_nop *moves, t_stack *stack, int num);
+void	optimizer(t_nop *numops);
+int		ops_sum(t_nop *numops);
+void	execute(t_stack *a, t_stack  *b, t_nop *numops);
+void	execute2(t_stack *a, t_stack *b, t_nop *numops);
+
+// ----------- STACK OPS ---------- //
+t_node	*createnode(int num);
+void	free_list(t_stack *stack);
+void	stack_change(t_node *new_node, t_stack *stack);
+void	initialize(t_stack *stack_a, t_stack *stack_b);
+void	deathnode(t_stack *stack);
 
 // ---------- OPERATIONS ---------- //
 void	ops(t_stack *stack_a, t_stack *stack_b, char *op_id);
