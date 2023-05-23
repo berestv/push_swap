@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:01:46 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/22 16:43:25 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:12:55 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	calculate(t_stack *stack_a, t_stack *stack_b)
 		sort2(stack_a, stack_b);
 	else if (stack_a->size == 3)
 		sort3(stack_a, stack_b);
-	else if (stack_a->size <= 5)
+	else if (stack_a->size == 4 || stack_a->size == 5)
 		sort5(stack_a, stack_b);
 	else if (stack_a->size > 5)
 		sort(stack_a, stack_b);

@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:01:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/23 15:31:48 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:12:09 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,23 @@ void	str_convert(t_stack *a, t_stack *b, char *str)
 	i = 0;
 	nospc = ft_split(str, ' ');
 	if (!nospc[0])
-		return ;
+		return (free2d(nospc, 0));
 	while (nospc[i])
 		i++;
 	size = i;
 	i--;
-	if (dups(nospc, size, 's') != -1 && isnum(str) != -1)
+	if (dups(nospc, size - 1, 's') != -1)
 	{
 		while (i >= 0)
 		{
+			if (isnum(nospc[i]) == -1)
+				return (free2d(nospc, size));
 			stack_change(createnode(ft_atoi(nospc[i])), a);
 			i--;
 		}
+		calculate(a, b);
 	}
 	free2d(nospc, size);
-	calculate(a, b);
 }
 
 void	arg_convert(int argc, char *argv[], t_stack *a, t_stack *b)
