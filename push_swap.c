@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:01:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/22 18:23:43 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:24:48 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	str_convert(t_stack *a, t_stack *b, char *str)
 			stack_change(createnode(ft_atoi(nospc[i])), a);
 			i--;
 		}
-		free2d(nospc, size);
-		return ;
 	}
 	free2d(nospc, size);
 	calculate(a, b);

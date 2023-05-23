@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:47:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/22 18:56:20 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:21:14 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,6 @@ t_nop	best(t_stack *a, t_stack *b)
 			break ;
 		copied->top = copied->top->next;
 	}
+	free(copied);
 	return (best);
 }
