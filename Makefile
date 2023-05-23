@@ -17,11 +17,13 @@ SRCS =  push_swap.c \
 		utils2.c \
 		utils3.c \
 
-BONUS = checker/checker.c
+BONUS = bonus/checker.c
 
 OBJS = $(SRCS:%.c=%.o)
 
 OBJS_BONUS = $(BONUS:%.c=%.o)
+
+all: $(NAME)
 
 $(LIBFT):
 	@$(MAKE) -C ./libft
@@ -29,17 +31,17 @@ $(LIBFT):
 $(NAME): $(OBJS) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o push_swap
 
-all: $(NAME)
-
-bonus:
-	@$(CC) $(CFLAGS) $(BONUS) -o checker
+bonus: $(OBJS_BONUS) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) -o checker
 
 clean:
 	@$(MAKE) clean -C ./libft
 	@$(RM) $(OBJS)
+	@$(RM) $(OBJS_BONUS)
 
 fclean: clean
 	@$(MAKE) fclean -C ./libft
 	@$(RM) $(NAME) push_swap
+	@$(RM) $(NAME) checker
 
 re: fclean all
