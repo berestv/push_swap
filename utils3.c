@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:12:12 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/22 15:57:04 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:42:06 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,15 @@ int	ops_sum(t_nop *numops)
 	sum += numops->rrr;
 	numops->add = sum;
 	return (sum);
+}
+
+void	err_handler(void)
+{
+	write(1, "Error\n", 6);
+}
+
+int	err_handler_int(void)
+{
+	write(1, "Error\n", 6);
+	return (-1);
 }

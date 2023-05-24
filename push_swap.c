@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:01:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 12:50:19 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:33:36 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	str_convert(t_stack *a, t_stack *b, char *str)
 	i = 0;
 	nospc = ft_split(str, ' ');
 	if (!nospc[0])
-		return (free2d(nospc, 0));
+		return (free2d(nospc, 0, 'a'));
 	while (nospc[i])
 		i++;
 	size = i;
@@ -31,13 +31,13 @@ void	str_convert(t_stack *a, t_stack *b, char *str)
 		while (i >= 0)
 		{
 			if (isnum(nospc[i]) == -1)
-				return (free2d(nospc, size));
+				return (free2d(nospc, size, 'e'));
 			stack_change(createnode(ft_atoi(nospc[i])), a);
 			i--;
 		}
 		calculate(a, b);
 	}
-	free2d(nospc, size);
+	free2d(nospc, size, 'a');
 }
 
 void	arg_convert(int argc, char *argv[], t_stack *a, t_stack *b)
@@ -48,7 +48,7 @@ void	arg_convert(int argc, char *argv[], t_stack *a, t_stack *b)
 	while (argc > 0)
 	{
 		if (isnum(argv[argc]) == -1)
-			return ;
+			return (err_handler());
 		stack_change(createnode(ft_atoi(argv[argc])), a);
 		argc--;
 	}

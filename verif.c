@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:27:08 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 15:04:36 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:37:58 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	dups(char **str, int size, char op)
 		while (i >= 0 && op == 's' && str[i])
 		{
 			if (ft_atoi(str[size]) == ft_atoi(str[i]))
-				return (-1);
+				return (err_handler_int());
 			i--;
 		}
 		while (i > 0 && op == 'a')
 		{
 			if (ft_atoi(str[size]) == ft_atoi(str[i]))
-				return (-1);
+				return (err_handler_int());
 			i--;
 		}
 		size--;

@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:24:16 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 15:04:55 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:36:48 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,15 @@ int		dups(char **str, int size, char op);
 int		isnum(char *str);
 
 // ------------ UTILS ------------ //
-void	free2d(char **arr, int size);
 int		find_limits(t_stack *stack, char op);
 int		find_limits_n(t_stack *stack, char op);
+void	free2d(char **arr, int size, char type);
 void	sort5_xtra(t_stack *a, t_stack *b, int pos);
 t_stack	*stk_cpy(t_stack *src);
 int		finddex(t_stack *stack, int num);
 int		lowernum(t_stack *stack, int num);
+void	err_handler(void);
+int 	err_handler_int(void);
 
 // ----------- MOVES OPS ---------- //
 t_nop	best(t_stack *a, t_stack *b);

@@ -6,13 +6,13 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:29:10 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/22 17:17:57 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:31:36 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free2d(char **arr, int size)
+void	free2d(char **arr, int size, char type)
 {
 	while (size >= 0)
 	{
@@ -20,6 +20,8 @@ void	free2d(char **arr, int size)
 		size--;
 	}
 	free(arr);
+	if (type == 'e')
+		err_handler();
 }
 
 int	find_limits(t_stack *stack, char op)
