@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 11:10:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 12:23:00 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:34:43 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,14 @@ int	sender(char type)
 		write(1, "OK", 2);
 		return (0);
 	}
+	if (type == 'e')
+	{
+		write(1, "Error", 2);
+		return (0);
+	}
 	if (type == 'f')
 	{
-		write(1, "Error", 5);
+		write(1, "KO", 5);
 		return (-1);
 	}
 	return (0);

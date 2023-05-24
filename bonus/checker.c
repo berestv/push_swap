@@ -6,13 +6,13 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:40:04 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 12:28:14 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:31:52 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int	str_convert(t_stack *a, t_stack *b, char *str)
+int	str_convert(t_stack *a, char *str)
 {
 	int		i;
 	int		size;
@@ -36,9 +36,10 @@ int	str_convert(t_stack *a, t_stack *b, char *str)
 	else
 		return (free2d(nospc, size, 'f'));
 	free2d(nospc, size, 's');
+	return (0);
 }
 
-int	arg_convert(int argc, char *argv[], t_stack *a, t_stack *b)
+int	arg_convert(int argc, char *argv[], t_stack *a)
 {
 	argc--;
 	if (dups(argv, argc, 'a') == -1)
@@ -85,9 +86,9 @@ int	main(int argc, char *argv[])
 	stack_a = malloc(sizeof (t_stack));
 	stack_b = malloc(sizeof (t_stack));
 	initialize(stack_a, stack_b);
-	if (argc == 2 && str_convert(stack_a, stack_b, argv[1]) != -1)
+	if (argc == 2 && str_convert(stack_a, argv[1]) != -1)
 		checker(stack_a, stack_b);
-	else if (argc > 2 && arg_convert(argc, argv, stack_a, stack_b) != -1)
+	else if (argc > 2 && arg_convert(argc, argv, stack_a) != -1)
 		checker(stack_a, stack_b);
 	else
 		sender('f');
