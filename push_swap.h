@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:24:16 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 12:49:23 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:04:55 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct n_op
 
 
 // ------------ CHECKS ------------ //
-int		check_order(char **str, int size);
+int		check_order(char **str, int size, char op);
 int		dups(char **str, int size, char op);
 int		isnum(char *str);
 
