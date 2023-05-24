@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:40:04 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 11:51:45 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:28:14 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,15 @@ void	initialize(t_stack *stack_a, t_stack *stack_b)
 
 int	checker(t_stack *a, t_stack *b)
 {
-	char	*str;
-
-	while (1)
+	if (exec_ops(a, b) == -1)
 	{
-		str = get_next_line(0);
-		if (!str)
-			break ;
-
+		sender('f');
+		return (-1);
 	}
-	free(str);
+	if (check_order_list(a) == 0)
+		sender('s');
+	else
+		return (-1);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:52:28 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 10:54:31 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:26:02 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,23 @@ int	check_order(char **str, int size)
 	if (count >= size)
 		return (-1);
 	return (0);
+}
+
+int	check_order_list(t_stack *stack)
+{
+	int		counter;
+	t_stack	*copied;
+
+	counter = 0;
+	copied = stk_cpy(stack);
+	while (copied->size > 0)
+	{
+		if (copied->top->num < copied->top->next->num)
+			counter++;
+		copied->top = copied->top->next;
+		copied->size--;
+	}
+	if (counter == stack->size)
+		return (0);
+	return (-1);
 }
