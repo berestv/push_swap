@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:42:02 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 11:24:24 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:56:59 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,16 @@ void	deathnode(t_stack *stack);
 void	free_lists(t_stack *a, t_stack *b);
 int		free2d(char **arr, int size, char type);
 void	stack_change(t_node *new_node, t_stack *stack);
+
+// ---------- OPERATIONS ---------- //
+void	ops(t_stack *stack_a, t_stack *stack_b, char *op_id);
+void	ops2(t_stack *stack_a, t_stack *stack_b, char *op_id);
+int		swap(t_stack *stack_a);
+int		rotate(t_stack *stack);
+int		rotrot(t_stack *stack_a, t_stack *stack_b);
+int		rev_rot(t_stack *stack);
+int		rrr(t_stack *stack_a, t_stack *stack_b);
+int		push(t_stack *src, t_stack *dest);
+int		ss(t_stack *stack_a, t_stack *stack_b);
+
 #endif
