@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:27:08 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/23 17:13:22 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:09:33 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	dups(char **str, int size, char op)
 {
 	int	i;
 
-	if (check_order(str, size) == -1)
+	if (check_order(str, size, op) == -1)
 		return (-1);
 	while (size >= 0 && str[size])
 	{
@@ -49,7 +49,7 @@ int	isnum(char *str)
 	return (-1);
 }
 
-int	check_order(char **str, int size)
+int	check_order(char **str, int size, char op)
 {
 	int	i;
 	int	j;
@@ -60,7 +60,7 @@ int	check_order(char **str, int size)
 	count = 1;
 	while (i >= 0 && str[i])
 	{
-		if (ft_atoi(str[i]) < ft_atoi(str[j]))
+		if (ft_atoi(str[i]) < ft_atoi(str[j]) || (i == 0 && op == 'a'))
 			count++;
 		j--;
 		i--;
