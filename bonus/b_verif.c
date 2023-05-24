@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:43:43 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 16:28:17 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:33:28 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ int	check_order_list(t_stack *stack)
 		copied->size--;
 	}
 	if (counter == stack->size)
-		return (-1);
-	return (0);
+		return (0);
+	return (-1);
 }
