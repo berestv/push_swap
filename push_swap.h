@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:24:16 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/23 17:46:38 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:49:23 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	b2bzero(t_nop *numops);
 void	movecount(t_nop *moves, t_stack *stack, int num);
 void	optimizer(t_nop *numops);
 int		ops_sum(t_nop *numops);
-void	execute(t_stack *a, t_stack  *b, t_nop *numops);
+void	execute(t_stack *a, t_stack *b, t_nop *numops);
 void	execute2(t_stack *a, t_stack *b, t_nop *numops);
 
 // ----------- STACK OPS ---------- //
