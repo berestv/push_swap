@@ -18,8 +18,11 @@ SRCS =  push_swap.c \
 		utils3.c \
 
 BONUS = bonus/checker.c \
-		bonus/b_utils.c \
 		bonus/b_verif.c \
+		bonus/b_utils.c \
+		bonus/b_utils2.c \
+		bonus/b_ops.c \
+		bonus/b_ops2.c \
 
 OBJS = $(SRCS:%.c=%.o)
 
