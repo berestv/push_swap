@@ -61,6 +61,8 @@ SRC = ft_isalnum.c \
 		ft_putstr.c \
 		ft_putunsg.c \
 		ft_atol.c \
+		get_next_line.c \
+		get_next_line_utils.c \
 
 OBJ = ${SRC:.c=.o}
 

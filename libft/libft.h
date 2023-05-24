@@ -13,9 +13,14 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 
 typedef struct s_list
 {
@@ -75,5 +80,10 @@ int		ft_printaddr(unsigned long addr);
 int		ft_puthex(unsigned long hex, char c);
 void	ft_print(va_list va, char c, int *ri);
 long	ft_atol(const char *nptr);
-
+char	*get_next_line(int fd);
+char	*ft_strchr(const char *str, int c);
+void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *str);
+void	*ft_memset(void *str, int c, size_t n);
 #endif
