@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:52:45 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 11:16:26 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/29 15:20:09 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	stack_change(t_node *new_node, t_stack *stack)
 	stack->size++;
 }
 
-void	free_lists(t_stack *a, t_stack *b)
+int	free_lists(t_stack *a, t_stack *b)
 {
 	while (a->size > 0)
 		deathnode(a);
@@ -74,4 +74,5 @@ void	free_lists(t_stack *a, t_stack *b)
 		deathnode(b);
 	free(a);
 	free(b);
+	return (0);
 }

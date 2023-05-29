@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 11:55:27 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 12:03:41 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/29 17:55:17 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 int	ops(t_stack *stack_a, t_stack *stack_b, char *op_id)
 {
-	if (ft_strncmp("sa", op_id, 2) == 0)
+	if (ft_strncmp("sa\n", op_id, 3) == 0)
 		return (swap(stack_a));
-	if (ft_strncmp("sb", op_id, 2) == 0)
+	if (ft_strncmp("sb\n", op_id, 3) == 0)
 		return (swap(stack_b));
-	if (ft_strncmp("ss", op_id, 2) == 0)
+	if (ft_strncmp("ss\n", op_id, 3) == 0)
 		return (ss(stack_a, stack_b));
-	if (ft_strncmp("pa", op_id, 2) == 0)
+	if (ft_strncmp("pa\n", op_id, 3) == 0)
 		return (push(stack_b, stack_a));
-	if (ft_strncmp("pb", op_id, 2) == 0)
+	if (ft_strncmp("pb\n", op_id, 3) == 0)
 		return (push(stack_a, stack_b));
-	if (ft_strncmp("ra", op_id, 2) == 0)
+	if (ft_strncmp("ra\n", op_id, 3) == 0)
 		return (rotate(stack_a));
-	if (ft_strncmp("rb", op_id, 2) == 0)
+	if (ft_strncmp("rb\n", op_id, 3) == 0)
 		return (rotate(stack_b));
-	if (ft_strncmp("rra", op_id, 3) == 0)
+	if (ft_strncmp("rra\n", op_id, 4) == 0)
 		return (rev_rot(stack_a));
-	if (ft_strncmp("rrb", op_id, 3) == 0)
+	if (ft_strncmp("rrb\n", op_id, 4) == 0)
 		return (rev_rot(stack_b));
-	if (ft_strncmp("rrr", op_id, 3) == 0)
+	if (ft_strncmp("rrr\n", op_id, 4) == 0)
 		return (rrr(stack_a, stack_b));
-	if (ft_strncmp("rr", op_id, 3) == 0)
+	if (ft_strncmp("rr\n", op_id, 3) == 0)
 		return (rotrot(stack_a, stack_b));
 	return (-1);
 }
