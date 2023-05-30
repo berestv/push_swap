@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:10:12 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/29 17:50:05 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/30 12:54:51 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ops2(t_stack *stack_a, t_stack *stack_b, char *op_id)
 	if (ft_strncmp("rrr", op_id, 3) == 0)
 		if (rrr(stack_a, stack_b) == 1)
 			ft_printf("rrr\n");
-	if (ft_strncmp("rr", op_id, 2) == 0)
+	if (ft_strncmp("rr", op_id, 3) == 0)
 		if (rotrot(stack_a, stack_b) == 1)
 			ft_printf("rr\n");
 }
