@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:42:02 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/29 15:20:27 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/30 12:29:35 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@ typedef struct s_node
 
 // --------------- VERIF --------------- //
 int		isnum(char *str);
+int		dups(char **str, int size);
 int		check_order_list(t_stack *stack);
-int		dups(char **str, int size, char op);
-int		check_order(char **str, int size, char op);
 
 // --------------- UTILS --------------- //
 int		sender(char type);

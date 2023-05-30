@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 11:10:24 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/29 15:40:17 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/30 12:22:13 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	exec_ops(t_stack *a, t_stack *b)
 		if (ops(a, b, str) != 1)
 		{
 			free(str);
-			sender('e');
 			return (-1);
 		}
 		free(str);

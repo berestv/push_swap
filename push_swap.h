@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:24:16 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 15:36:48 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/30 12:30:49 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct n_op
 	int	add;
 }		t_nop;
 
-
 // ------------ CHECKS ------------ //
 int		check_order(char **str, int size, char op);
 int		dups(char **str, int size, char op);
@@ -56,7 +55,7 @@ t_stack	*stk_cpy(t_stack *src);
 int		finddex(t_stack *stack, int num);
 int		lowernum(t_stack *stack, int num);
 void	err_handler(void);
-int 	err_handler_int(void);
+int		err_handler_int(void);
 
 // ----------- MOVES OPS ---------- //
 t_nop	best(t_stack *a, t_stack *b);
