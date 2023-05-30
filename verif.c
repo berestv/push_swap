@@ -6,7 +6,7 @@
 /*   By: bbento-e <bbento-e@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:27:08 by bbento-e          #+#    #+#             */
-/*   Updated: 2023/05/24 15:37:58 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:50:32 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,21 @@ int	check_order(char **str, int size, char op)
 	}
 	if (count >= size)
 		return (-1);
+	return (0);
+}
+
+int	num_check(char **str)
+{
+	int	i;
+
+	i = 0;
+	if (!str[i])
+		return (-1);
+	while (str[i])
+	{
+		if (isnum(str[i]) == -1)
+			return (-1);
+		i++;
+	}
 	return (0);
 }

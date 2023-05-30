@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:20:21 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/30 15:00:10 by bbento-e         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:57:36 by bbento-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_atoi(const char *str)
 		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
-	if (str[i] != '\0' && (str[i] <= '0' || str[i] >= '9'))
+	if (str[i] != '\0' && (str[i] < '0' || str[i] > '9'))
 		return (0);
 	return (res * sgn);
 }
